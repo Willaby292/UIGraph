@@ -31,9 +31,6 @@ def recordClicks():
             listOfClicks.append(tuple)
         elif event.name == '-':
             break
-        # elif event == 't': impliment user giving list of x y coords
-        #     input = ''
-        #     break
         time.sleep(0.5)
     return listOfClicks
 
