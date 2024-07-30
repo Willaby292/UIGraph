@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Node Navigation</title>
+    <title>Graph Navigation</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="navbar">
-        <a href="#">Home</a>
-        <a href="#">Contact</a>
-        <a href="#">Resume</a>
-        <div class="button-container">
-            <button id="record-poi-btn">Record Points of Interest</button>
-            <button id="generate-poi-btn">Generate Random Points of Interest</button>
-        </div>
+        <button>Home</button>
+        <button>Contact</button>
+        <button>Resume</button>
     </div>
-    <div id="circle-container"></div>
+    <div class="sidebar">
+        <button id="record-poi-btn">Record Points of Interest</button>
+        <button id="done-recording-btn" style="display:none;">Done</button>
+        <button id="generate-poi-btn">Generate Random Points of Interest</button>
+        <input type="number" id="num-nodes" min="1" max="100">
+        <button id="set-background-btn">Set Background Image</button>
+        <button id="clear-background-btn">Clear Background</button>
+    </div>
+    <div id="circle-container" class="circle-container"></div>
     <script src="script.js"></script>
 </body>
 </html>

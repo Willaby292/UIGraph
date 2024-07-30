@@ -3,6 +3,8 @@ body {
     padding: 0;
     overflow: hidden; /* Prevent unwanted scrolling */
     background-color: #ffffe0; /* Light yellow-white background */
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar {
@@ -16,6 +18,7 @@ body {
     left: 0;
     width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it is above other elements */
 }
 
 .navbar a {
@@ -25,12 +28,22 @@ body {
     font-size: 16px;
 }
 
-.button-container {
+.sidebar {
+    position: fixed;
+    top: 60px; /* Position below the navbar */
+    left: 0;
+    width: 200px; /* Width of the sidebar */
+    height: calc(100vh - 60px); /* Full height below the navbar */
+    background-color: #ffc107; /* Yellow for sidebar */
+    padding: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
+    flex-direction: column;
     gap: 10px;
+    z-index: 999; /* Ensure it is below the navbar */
 }
 
-.button-container button {
+.sidebar button {
     padding: 8px 12px;
     font-size: 14px;
     cursor: pointer;
@@ -40,25 +53,79 @@ body {
     border-radius: 5px;
 }
 
-.button-container button:hover {
+.sidebar button:hover {
     background-color: #fbc02d; /* Lighter yellow on hover */
 }
 
-#circle-container {
-    position: absolute;
-    top: 50px; /* Space from the navbar */
-    left: 0;
+.sidebar input[type="number"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     width: 100%;
-    height: calc(100vh - 50px); /* Space below the navbar */
-    overflow: hidden;
 }
+
+.circle-container {
+    position: relative;
+    top: 40px;
+    width: calc(100% - 200px); /* Adjust width for sidebar */
+    height: calc(100vh - 60px); /* Adjust height for navbar */
+    background-color: #fff9e6; /* Light yellow-white background */
+    overflow: hidden; /* Prevent scrollbars */
+    margin-left: 225px; /* Adjust for sidebar width */
+    margin-top: 0; /* Ensure there's no top margin affecting positioning */
+}
+
 
 .circle {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 40px; /* Larger circle */
+    height: 40px; /* Larger circle */
     border-radius: 50%;
     background-color: blue;
     border: 2px solid black; /* Black outline */
     transition: background-color 0.3s;
+}
+
+.line {
+    position: absolute;
+    background-color: black;
+    height: 2px;
+    transform-origin: 0 0;
+    transition: opacity 0.3s;
+}
+
+.line.arrow {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: solid black;
+    border-width: 2px 2px 0 0;
+    transform: rotate(45deg);
+    transform-origin: 0 0;
+    background-color: transparent;
+}
+
+.line.arrow.UP {
+    height: 10px;
+    border-width: 0 2px 2px 2px;
+    transform: rotate(135deg);
+}
+
+.line.arrow.DOWN {
+    height: 10px;
+    border-width: 2px 2px 0 2px;
+    transform: rotate(-45deg);
+}
+
+.line.arrow.LEFT {
+    width: 10px;
+    border-width: 2px 2px 2px 0;
+    transform: rotate(225deg);
+}
+
+.line.arrow.RIGHT {
+    width: 10px;
+    border-width: 2px 0 2px 2px;
+    transform: rotate(45deg);
 }
