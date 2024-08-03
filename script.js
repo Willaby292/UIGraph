@@ -25,7 +25,7 @@ class Node {
         this.neighbors[direction] = node;
     }
 
-    updateColor(color = 'blue') {
+    updateColor(color = '#f7f7f7') {
         this.element.style.backgroundColor = color;
     }
 
@@ -61,7 +61,7 @@ class Node {
 
         line.style.width = `${length}px`;
         line.style.height = '2px'; // Line thickness
-        line.style.backgroundColor = 'black';
+        line.style.backgroundColor = '#143109';
         line.style.position = 'absolute';
         line.style.transform = `rotate(${angle}deg)`;
         line.style.transformOrigin = '0 0'; // Rotate from the start point
@@ -76,7 +76,7 @@ class Graph {
     constructor(nodes) {
         this.nodes = nodes;
         this.currentNode = this.nodes[0];
-        this.currentNode.updateColor('red');
+        this.currentNode.updateColor('#143109');
         this.currentNode.drawLines(this.currentNode); // Draw lines for initial node
     }
 
@@ -86,7 +86,7 @@ class Graph {
             this.currentNode.updateColor(); // Reset previous node color
             this.currentNode.drawLines(null); // Clear lines for previous node
             this.currentNode = nextNode;
-            this.currentNode.updateColor('red'); // Highlight new current node
+            this.currentNode.updateColor('#143109'); // Highlight new current node
             this.currentNode.drawLines(this.currentNode); // Draw lines for new current node
         }
     }

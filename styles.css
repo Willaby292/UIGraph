@@ -1,40 +1,72 @@
+/* pallet
+Darkest
+>> #143109
+>> #aaae7f
+>> #d0d6b3
+>> #f7f7f7
+>> #efefef
+Lightest
+*/
+
+:root {
+    --pallet1: #143109;
+    --pallet2: #aaae7f;
+    --pallet3: #d0d6b3;
+    --pallet4: #f7f7f7;
+    --pallet5: #efefef;
+}
+
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Prevent unwanted scrolling */
-    background-color: #ffffe0; /* Light yellow-white background */
+    overflow: hidden;
+    background-color: var(--pallet2);
     display: flex;
     flex-direction: column;
+    font-size: 16px;
 }
 
 .navbar {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20%;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffc107; /* Yellow for navbar */
-    padding: 10px;
-    position: fixed;
-    top: 0;
-    left: 0;
+    background-color: var(--pallet3);
     width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000; /* Ensure it is above other elements */
 }
 
+.nav_element{
+    border: none;
+    background: none;
+    padding: 1em;
+    font-size: 1.5em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+.nav_element:hover{
+    background-color: #efefef;
+    border-radius: 1em;
+}
+
 .navbar a {
     text-decoration: none;
-    color: #fff; /* White text color */
+    color: var(--pallet1);
     padding: 10px;
     font-size: 16px;
 }
 
 .sidebar {
     position: fixed;
-    top: 60px; /* Position below the navbar */
+    top: 80px; /* Position below the navbar */
     left: 0;
     width: 200px; /* Width of the sidebar */
     height: calc(100vh - 60px); /* Full height below the navbar */
-    background-color: #ffc107; /* Yellow for sidebar */
+    background-color: var(--pallet3); /* Yellow for sidebar */
     padding: 10px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -45,24 +77,25 @@ body {
 
 .sidebar button {
     padding: 8px 12px;
+    margin-bottom: 5px;
     font-size: 14px;
     cursor: pointer;
-    background-color: #f57f17; /* Darker yellow for buttons */
-    color: #fff; /* White text color */
+    background-color: var(--pallet4); /* Darker yellow for buttons */
+    color: var(--pallet1); /* White text color */
     border: none;
     border-radius: 5px;
 }
 
 .sidebar button:hover {
-    background-color: #fbc02d; /* Lighter yellow on hover */
+    background-color: var(--pallet3); /* Lighter yellow on hover */
 }
 
 .sidebar input[type="number"] {
     padding: 8px;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--pallet5);
     border-radius: 5px;
-    width: 100%;
+    width: 91%;
 }
 
 .circle-container {
@@ -70,7 +103,7 @@ body {
     top: 40px;
     width: calc(100% - 200px); /* Adjust width for sidebar */
     height: calc(100vh - 60px); /* Adjust height for navbar */
-    background-color: #fff9e6; /* Light yellow-white background */
+    background-color: var(--pallet2); /* Light yellow-white background */
     overflow: hidden; /* Prevent scrollbars */
     margin-left: 225px; /* Adjust for sidebar width */
     margin-top: 0; /* Ensure there's no top margin affecting positioning */
@@ -82,14 +115,14 @@ body {
     width: 40px; /* Larger circle */
     height: 40px; /* Larger circle */
     border-radius: 50%;
-    background-color: blue;
-    border: 2px solid black; /* Black outline */
+    background-color: var(--pallet4);
+    border: 2px solid var(--pallet1); /* Black outline */
     transition: background-color 0.3s;
 }
 
 .line {
     position: absolute;
-    background-color: black;
+    background-color: var(--pallet1);
     height: 2px;
     transform-origin: 0 0;
     transition: opacity 0.3s;
@@ -99,7 +132,7 @@ body {
     position: absolute;
     width: 10px;
     height: 10px;
-    border: solid black;
+    border: solid var(--pallet1);
     border-width: 2px 2px 0 0;
     transform: rotate(45deg);
     transform-origin: 0 0;
